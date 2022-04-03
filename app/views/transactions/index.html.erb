@@ -1,0 +1,17 @@
+<h1>Hello, User: <%= current_user.username %>!</h1>
+<h2>Transactions</h2>
+
+<ul>
+  <% @transactions.each do |transaction| %>
+    <li>
+      <p><%= transaction.tDate %>:
+        <%= link_to transaction.name, user_transaction_path(@user, transaction) %></p>
+    </li>
+  <% end %>
+</ul>
+
+<p></p>
+<%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %>
+
+<p></p>
+<%= link_to "View Accounts", user_accounts_path(@user) %>

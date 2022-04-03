@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :index] do
     resources :accounts
+    resources :transactions
   end
 
   get 'login', to: 'sessions#new'

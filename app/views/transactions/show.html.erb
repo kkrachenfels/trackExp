@@ -1,0 +1,20 @@
+<h1><%= @transaction.name %></h1>
+
+<ul>
+  <li>Transaction Type: <%= @transaction.tType %></li>
+  <li>Transaction Amount: <%= @transaction.amount %></li>
+  <li>Transaction Date: <%= @transaction.tDate %></li>
+  <li>Transaction Account: <%= Account.find(@transaction.account_id).accountName %></li>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit Transaction", edit_user_transaction_path(@user, @transaction) %></li>
+  <li><%= link_to "Delete Transaction", user_transaction_path(@user, @transaction), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+<p></p>
+<%= link_to "Back to All Transactions", user_transactions_path(@user) %>

@@ -1,0 +1,38 @@
+<%= form_with model: [@user, transaction] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% transaction.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :date %><br>
+    <%= form.date_select :tDate %>
+  </div>
+
+  <p></p>
+
+  <div>
+    <%= form.radio_button :tType, 0 %>
+    <%= form.label :expense, "Expense" %>
+
+    <%= form.radio_button :tType, 1 %>
+    <%= form.label :income, "Income" %>
+  </div>
+
+  <div>
+    <%= form.label :amount %><br>
+    <%= form.number_field :amount, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.label :account_id %><br>
+    <%= form.select(:account_id, @user.accounts.collect { |a| [a.accountName, a.id] }, {:include_blank => true, :selected => form.object.account_id}) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
