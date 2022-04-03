@@ -1,14 +1,24 @@
 <h1>Hello, User: <%= current_user.username %>!</h1>
 <h2>Transactions</h2>
 
-<ul>
+<table>
+  <tr>
+    <th>Date </th>
+    <th>Name </th>
+    <th>Amount </th>
+    <th>Type </th>
+    <th>Account </th>
+  </tr>
   <% @transactions.each do |transaction| %>
-    <li>
-      <p><%= transaction.tDate %>:
-        <%= link_to transaction.name, user_transaction_path(@user, transaction) %></p>
-    </li>
+    <tr>
+      <td><%= transaction.tDate %></td>
+      <td><%= link_to transaction.name, user_transaction_path(@user, transaction) %></td>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.tType %></td>
+      <td><%= transaction.account.accountName %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <p></p>
 <%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %>
