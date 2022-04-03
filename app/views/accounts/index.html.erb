@@ -1,0 +1,13 @@
+<h1>Accounts</h1>
+
+<ul>
+  <% @accounts.each do |account| %>
+    <li>
+      <p><%= link_to account.accountName, user_account_path(@user, account) %>:
+        <%= account.balance %> </p>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Create New Account", new_user_account_path(@user, @accounts) %></p>
+<p><%= link_to "Go back Home", user_path(@user) %></p>

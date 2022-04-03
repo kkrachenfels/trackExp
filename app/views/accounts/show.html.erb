@@ -1,0 +1,11 @@
+<h1><%= @account.accountName %></h1>
+<p><%= link_to "Edit Account Name", edit_user_account_path(@user, @account) %><br>
+<%= link_to "Delete Account", user_account_path(@user, @account), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %></p>
+
+
+
+<p></p>
+<%= link_to "Back to All Accounts", user_accounts_path(@user) %>

@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
+    flash[:error] = "You need to be logged in to access this page."
     redirect_to '/welcome' unless logged_in?
   end
 

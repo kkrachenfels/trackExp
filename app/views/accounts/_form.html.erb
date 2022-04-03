@@ -1,0 +1,13 @@
+<%= form_with model: [@user, account] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :accountName %>
+    <% account.errors.full_messages_for(:accountName).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
