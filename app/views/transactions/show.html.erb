@@ -1,8 +1,8 @@
 <h1><%= @transaction.name %></h1>
 
 <ul>
-  <li>Transaction Type: <%= @transaction.tType %></li>
-  <li>Transaction Amount: <%= @transaction.amount %></li>
+  <li>Transaction Type: <%= @transaction.get_type %></li>
+  <li>Transaction Amount: <%= @transaction.get_signed_amount %></li>
   <li>Transaction Date: <%= @transaction.tDate %></li>
   <li>Transaction Account: <%= Account.find(@transaction.account_id).accountName %></li>
 </ul>

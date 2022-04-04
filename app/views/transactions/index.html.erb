@@ -13,15 +13,15 @@
     <tr>
       <td><%= transaction.tDate %></td>
       <td><%= link_to transaction.name, user_transaction_path(@user, transaction) %></td>
-      <td><%= transaction.amount %></td>
-      <td><%= transaction.tType %></td>
+      <td><%= transaction.get_signed_amount %></td>
+      <td><%= transaction.get_type %></td>
       <td><%= transaction.account.accountName %></td>
     </tr>
   <% end %>
 </table>
 
-<p></p>
-<%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %>
+<h3>Total Balance Across All Accounts: <%= @user.get_balance %></h3>
 
-<p></p>
-<%= link_to "View Accounts", user_accounts_path(@user) %>
+<p><%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %></p>
+
+<p><%= link_to "View Accounts", user_accounts_path(@user) %></p>
