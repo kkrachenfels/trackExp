@@ -1,4 +1,23 @@
-<h1><%= @account.accountName %></h1>
+<h1>List of transactions for Account: <%= @account.accountName %></h1>
+
+<table>
+  <tr>
+    <th>Date </th>
+    <th>Name </th>
+    <th>Amount </th>
+    <th>Type </th>
+  </tr>
+  <% @account.transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.tDate %></td>
+      <td><%= link_to transaction.name, user_transaction_path(@user, transaction) %></td>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.tType %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 <p><%= link_to "Edit Account Name", edit_user_account_path(@user, @account) %><br>
 <%= link_to "Delete Account", user_account_path(@user, @account), data: {
                   turbo_method: :delete,

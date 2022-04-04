@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+ body {
+   background-color: lightblue;
+ }*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap');
+
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+ h1, h2 {
+   color: #4a79a4;
+   text-align: center;
+ }
+
+
+ p, div {
+   font-size: 20px;
+ }
+
+
+table, th, td {
+  width: 90%;
+  border: 2px solid #4b8cab;
+  border-collapse: collapse;
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+  vertical-align: center;
+  font-size: 16px;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 15px;
+  height: 20px;
+}
+
+th {
+  background-color: #4b8cab;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f6f9;
+}
+
+a:link {
+  color: 	#4a79a4;
+}
+
+a:visited {
+  color: 	#4b8cab;
+}
+
+a:hover {
+  color: 	#515b68;
+}
+
+a:active {
+  color: ;
+}

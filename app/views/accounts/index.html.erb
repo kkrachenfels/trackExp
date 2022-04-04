@@ -1,14 +1,18 @@
 <h1>Hello, User: <%= current_user.username %>!</h1>
 <h2>Accounts</h2>
 
-<ul>
+<table>
+  <tr>
+    <th>Account Name </th>
+    <th>Balance </th>
+  </tr>
   <% @accounts.each do |account| %>
-    <li>
-      <p><%= link_to account.accountName, user_account_path(@user, account) %>:
-        <%= account.balance %> </p>
-    </li>
+    <tr>
+      <td><%= link_to account.accountName, user_account_path(@user, account) %></td>
+      <td><%= account.balance %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <p><%= link_to "Create New Account", new_user_account_path(@user, @accounts) %></p>
 <p><%= link_to "View Transactions", user_transactions_path(@user) %></p>
