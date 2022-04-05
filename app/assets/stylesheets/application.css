@@ -26,6 +26,7 @@
 * {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+  align-items: center;
 }
 
 
@@ -39,9 +40,8 @@
    font-size: 16px;
  }
 
-
 table, th, td {
-  width: 90%;
+  width: 95%;
   border: 2px solid #4b8cab;
   border-collapse: collapse;
   padding: 30px;
@@ -51,6 +51,15 @@ table, th, td {
   font-size: 16px;
   table-layout: fixed;
 }
+
+button {
+  background: white;
+  color: #4b8cab;
+  border-color: #f0f6f9;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
 
 th, td {
   padding: 15px;
@@ -64,6 +73,12 @@ th {
 
 tr:nth-child(even) {
   background-color: #f0f6f9;
+}
+
+ul, li {
+  text-align: center;
+  align-items: center;
+  list-style: none;
 }
 
 a:link {

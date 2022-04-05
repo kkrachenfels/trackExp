@@ -7,13 +7,12 @@
   <li>Transaction Account: <%= Account.find(@transaction.account_id).accountName %></li>
 </ul>
 
-<ul>
-  <li><%= link_to "Edit Transaction", edit_user_transaction_path(@user, @transaction) %></li>
-  <li><%= link_to "Delete Transaction", user_transaction_path(@user, @transaction), data: {
+<p><%= link_to "Edit Transaction", edit_user_transaction_path(@user, @transaction) %></p>
+<p><%= link_to "Delete Transaction", user_transaction_path(@user, @transaction), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  } %></p>
+
 
 
 <p></p>
