@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_transactions_path(@user)
+      redirect_to new_user_transaction_path(@user)
     else
       flash[:notice] = "Login is invalid!"
       redirect_to '/login'

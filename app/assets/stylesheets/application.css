@@ -55,9 +55,9 @@ table, th, td {
 button {
   background: white;
   color: #4b8cab;
-  border-color: #f0f6f9;
-  border-radius: 10px;
+  border-radius: 4px;
   font-size: 18px;
+  border: 2px solid #4a79a4;
 }
 
 form label {
@@ -97,12 +97,7 @@ a:hover {
 }
 
 a:active {
-  color: ;
-}
-
-nav {
-  border-width: 10px;
-  border-color: black;
+  color: red;
 }
 
 nav ul {
@@ -124,4 +119,35 @@ nav li {
 
 nav a:hover {
   color: #515b68;
+}
+
+form {
+  box-sizing: border-box;
+  border: 2px solid #4a79a4;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  background-color: #f0f6f9;
+}
+
+form input {
+  padding: 8px;
+  font-size: 16px;
+  margin: 8px;
+  color: #4b8cab;
+  box-sizing: border-box;
+  border: 2px solid #4a79a4;
+  border-radius: 4px;
+  background: white;
+}
+
+form select {
+  padding: 8px;
+  border: 2px solid #4a79a4;
+  font-size: 14px;
+  background-color: white;
+}
+
+form div {
+  margin: 12px;
 }

@@ -28,8 +28,9 @@
   </div>
 
   <div>
+    <%# :include_blank => true, %>
     <%= form.label :account_id %><br>
-    <%= form.select(:account_id, @user.accounts.collect { |a| [a.accountName, a.id] }, {:include_blank => true, :selected => form.object.account_id}) %>
+    <%= form.select(:account_id, @user.accounts.collect { |a| [a.accountName, a.id] }, { :selected => form.object.account_id}) %>
   </div>
 
   <div>

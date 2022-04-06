@@ -1,11 +1,10 @@
 <h1><%= @transaction.name %></h1>
 
-<ul>
-  <li>Transaction Type: <%= @transaction.get_type %></li>
-  <li>Transaction Amount: <%= @transaction.get_signed_amount %></li>
-  <li>Transaction Date: <%= @transaction.tDate %></li>
-  <li>Transaction Account: <%= Account.find(@transaction.account_id).accountName %></li>
-</ul>
+
+<p>Transaction Type: <%= @transaction.get_type %></p>
+<p>Transaction Amount: <%= @transaction.get_signed_amount %></p>
+<p>Transaction Date: <%= @transaction.tDate %></p>
+<p>Transaction Account: <%= Account.find(@transaction.account_id).accountName %></p>
 
 <p><%= link_to "Edit Transaction", edit_user_transaction_path(@user, @transaction) %></p>
 <p><%= link_to "Delete Transaction", user_transaction_path(@user, @transaction), data: {
