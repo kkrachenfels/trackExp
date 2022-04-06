@@ -6,7 +6,7 @@
 
 <h1>Welcome</h1>
 <% if logged_in? %>
-    <p>You are Logged In, <%= current_user.username %></p>
+    <p>You are Logged In, <%= current_user.username %>!</p>
     <%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %>
 <%else%>
   <%= button_to "Login", '/login', method: :get%>

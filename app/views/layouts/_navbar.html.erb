@@ -1,0 +1,17 @@
+<header>
+  <div class="container">
+
+    <nav>
+      <ul>
+        <li><%= image_tag "money.jpg", size: "64x64", class: "app_logo" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Home", new_user_transaction_path(current_user.id) %></li>
+          <li><%= link_to "Transactions", user_transactions_path(current_user.id) %></li>
+          <li><%= link_to "Accounts", user_accounts_path(current_user.id) %></li>
+          <li><%= "Records" %></li>
+          <li><%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
