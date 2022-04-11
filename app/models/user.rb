@@ -11,4 +11,7 @@ class User < ApplicationRecord
     end
     return total_balance
   end
+
+  validates :username, presence: true, length: { in: 2..20 }, uniqueness: true
+  validates :password, presence: true, length: { in: 3..20 }
 end

@@ -20,8 +20,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/welcome'
     else
-      flash[:error] = "Error. Please try to create an account again."
-      redirect_to new_user_path
+      #flash[:error] = "Error. Please try to create an account again."
+      #redirect_to new_user_path
+      render :new, status: :unprocessable_entity
     end
   end
 

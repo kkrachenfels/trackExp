@@ -5,5 +5,5 @@ class Account < ApplicationRecord
     dependent: :destroy
   )
 
-  validates :accountName, presence: true, length: { maximum: 50 }
+  validates :accountName, presence: true, length: { minimum: 2, maximum: 50 }
 end

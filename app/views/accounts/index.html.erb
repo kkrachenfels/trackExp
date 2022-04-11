@@ -14,4 +14,7 @@
   <% end %>
 </table>
 
-<p><%= link_to "Create New Account", new_user_account_path(@user, @accounts) %></p>
+<div>
+  <p><%= link_to "Create New Account", new_user_account_path(@user, @accounts) %></p>
+  <p><%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %></p>
+</div>
