@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :accounts
   has_many :transactions
 
+  has_many :records
+
   has_secure_password
 
   def get_balance

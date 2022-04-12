@@ -8,7 +8,7 @@
           <li><%= link_to "Home", new_user_transaction_path(current_user.id) %></li>
           <li><%= link_to "Transactions", user_transactions_path(current_user.id) %></li>
           <li><%= link_to "Accounts", user_accounts_path(current_user.id) %></li>
-          <li><%= "Records" %></li>
+          <li><%= link_to "Records", user_path(current_user.id) %></li>
           <li><%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %></li>
         <% end %>
       </ul>

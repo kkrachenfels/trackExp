@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :index] do
     resources :accounts
     resources :transactions
+    #resources :records
+
+    #get 'record', on: :member, to:
+    #get 'record', on: :member
+
   end
 
   get 'login', to: 'sessions#new'
@@ -13,8 +18,4 @@ Rails.application.routes.draw do
 
   root 'sessions#welcome'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

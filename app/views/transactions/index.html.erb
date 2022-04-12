@@ -1,6 +1,13 @@
 <h1>Hello, User: <%= current_user.username %>!</h1>
 <h2>Transactions</h2>
 
+<%= form_tag(user_transactions_path, method: :get) do %>
+  <p> Select Date Range </p>
+  <p><%= date_select(:fromDate, params[:fromDate]) %></p>
+  <p><%= date_select(:toDate, params[:toDate]) %></p>
+  <%= submit_tag ("Get Record") %>
+<% end %>
+
 <table>
   <tr>
     <th>Date </th>

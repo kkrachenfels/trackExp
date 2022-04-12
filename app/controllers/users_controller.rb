@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
+  before_action :user_authorized
+  skip_before_action :user_authorized, only: [:new, :create]
 
   def index
     @users = User.all
@@ -7,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #if @user.id != current_user.id
+    #  redirect_to '/welcome'
+    #end
   end
 
   def new
@@ -27,6 +32,12 @@ class UsersController < ApplicationController
   end
 
 
+  def user_authorized
+    #flash[:error] = "You do not have access to this page."
+    #if session[:user_id] == nil || session[:user_id] != @user.id
+    #  render :new, status: :unprocessable_entity
+    #end
+  end
 
   private
   def user_params

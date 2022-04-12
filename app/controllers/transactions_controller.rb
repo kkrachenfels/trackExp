@@ -2,7 +2,18 @@ class TransactionsController < ApplicationController
   before_action :get_user
 
   def index
-    @transactions = @user.transactions.order("tDate desc") #order by transaction date
+    if params[:fromDate] && params[:toDate]
+      startD = params[:fromDate]
+      fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
+      endD = params[:toDate]
+      toD = Date.new endD["(1i)"].to_i, endD["(2i)"].to_i, endD["(3i)"].to_i
+    #  @transactions = @user.transactions.where(tDate: (params[:fromDate])..(params[:toDate]))
+      #@transactions = @user.transactions.where(:tDate=>10.days.ago...Time.now)
+      @transactions = @user.transactions.where(:tDate=>fromD..toD).order("tDate desc")
+      #@transactions = @user.transactions.where(:tDate=>10.days.ago...Date.today)
+    else
+      @transactions = @user.transactions.order("tDate desc") #order by transaction date
+    end
   end
 
   def show
@@ -72,6 +83,12 @@ class TransactionsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def get_record
+  end
+
+  def record
   end
 
   private

@@ -1,2 +1,26 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Hello, User: <%= current_user.username %>!</h1>
+<h2>Transactions</h2>
+
+
+<table>
+  <tr>
+    <th>Date </th>
+    <th>Name </th>
+    <th>Amount </th>
+    <th>Type </th>
+    <th>Account </th>
+  </tr>
+  <% @user.transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.tDate %></td>
+      <td><%= link_to transaction.name, user_transaction_path(@user, transaction) %></td>
+      <td><%= transaction.get_signed_amount %></td>
+      <td><%= transaction.get_type %></td>
+      <td><%= link_to transaction.account.accountName, user_account_path(@user, transaction.account.id) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Total Balance Across All Accounts: <%= @user.get_balance %></h3>
+
+<p><%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %></p>
