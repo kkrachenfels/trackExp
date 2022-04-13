@@ -4,13 +4,16 @@ class TransactionsController < ApplicationController
   def index
     if params[:fromDate] && params[:toDate]
       startD = params[:fromDate]
-      fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
       endD = params[:toDate]
+      fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
       toD = Date.new endD["(1i)"].to_i, endD["(2i)"].to_i, endD["(3i)"].to_i
-    #  @transactions = @user.transactions.where(tDate: (params[:fromDate])..(params[:toDate]))
+
       #@transactions = @user.transactions.where(:tDate=>10.days.ago...Time.now)
       @transactions = @user.transactions.where(:tDate=>fromD..toD).order("tDate desc")
-      #@transactions = @user.transactions.where(:tDate=>10.days.ago...Date.today)
+
+      #clear params for use again
+      params[:fromDate] = nil
+      params[:toDate] = nil
     else
       @transactions = @user.transactions.order("tDate desc") #order by transaction date
     end
@@ -23,6 +26,7 @@ class TransactionsController < ApplicationController
   def new
     @transaction = @user.transactions.build
   end
+
 
   def create
     @transaction = @user.transactions.build(transaction_params)

@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :index] do
     resources :accounts
     resources :transactions
-    #resources :records
 
-    #get 'record', on: :member, to:
     #get 'record', on: :member
 
   end
