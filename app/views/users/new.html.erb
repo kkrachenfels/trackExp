@@ -1,5 +1,5 @@
 <% flash.each do |type, msg| %>
-  <div>
+  <div class="error-notice">
     <%= msg %>
   </div>
 <% end %>
@@ -12,7 +12,7 @@
     <%= f.label :username%><br>
     <%= f.text_field :username%>
     <% @user.errors.full_messages_for(:username).each do |message| %>
-      <%= message %>
+      <div class = "error-notice"><%= message %></div>
     <% end %>
   </div>
 
@@ -20,7 +20,7 @@
     <%= f.label :password%><br>
     <%= f.password_field :password%>
     <% @user.errors.full_messages_for(:password).each do |message| %>
-      <%= message %>
+      <div class = "error-notice"><%= message %></div>
     <% end %>
   </div>
 

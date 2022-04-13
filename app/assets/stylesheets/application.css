@@ -149,8 +149,10 @@ form div {
   margin: 12px;
 }
 
-.recorderror {
-  /* color: #FF5C5C; */
-  /* color: #9E7BB5*/
-  color: #ac6986
+.error-record {
+  color: #9e7bb5
+}
+
+.error-notice {
+  color: #ff5c5c
 }

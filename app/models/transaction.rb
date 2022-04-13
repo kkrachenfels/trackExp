@@ -14,4 +14,5 @@ class Transaction < ApplicationRecord
   validates :tDate, presence: true
   validates :tType, inclusion: [true, false]
   validates :amount, presence: true
+  validates_numericality_of :amount, :greater_than => 0
 end

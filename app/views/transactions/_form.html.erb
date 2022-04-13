@@ -3,7 +3,7 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
     <% transaction.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
+      <div class="error-notice"><%= message %></div>
     <% end %>
   </div>
 
@@ -11,7 +11,7 @@
     <%= form.label :date %><br>
     <%= form.date_select(:tDate, :default => Date.today, :end_year => Date.current.year) %>
     <% transaction.errors.full_messages_for(:tDate).each do |message| %>
-      <div><%= message %></div>
+      <div class = "error-notice"><%= message %></div>
     <% end %>
   </div>
 
@@ -24,13 +24,17 @@
     <%= form.radio_button :tType, 1 %>
     <%= form.label :income, "Income" %>
     <% transaction.errors.full_messages_for(:tType).each do |message| %>
-      <div><%= message %></div>
+      <div class = "error-notice"><%= "Please select a type of transaction." %></div>
     <% end %>
   </div>
 
   <div>
     <%= form.label :amount %><br>
-    <%= form.number_field :amount, step: 0.01 %>
+    <%= form.number_field(:amount, step: 0.01)%>
+    <% transaction.errors.full_messages_for(:amount).each do |message| %>
+      <div class = "error-notice"><%= "Amount should be > 0.
+        For negative-balance transactions, select the 'Expense' option above." %></div>
+    <% end %>
   </div>
 
   <div>
