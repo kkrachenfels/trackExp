@@ -10,6 +10,8 @@
     <p>You are Logged In, <%= current_user.username %>!</p>
     <%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %>
 <%else%>
+  <div class="welcome-buttons">
     <%= button_to "Login", '/login', method: :get%>
     <%= button_to "Sign Up", '/users/new', method: :get%>
+  </div>
 <%end%>

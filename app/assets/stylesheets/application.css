@@ -156,3 +156,11 @@ form div {
 .error-notice {
   color: #ff5c5c
 }
+
+.welcome-buttons {
+  box-sizing: none;
+  width: 20%;
+  padding: auto;
+  margin: auto;
+  border-collapse: separate;
+}
