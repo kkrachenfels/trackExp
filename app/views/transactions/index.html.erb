@@ -7,6 +7,10 @@
   <%= submit_tag ("Get Record") %>
 <% end %>
 
+<% if @fromD && @toD %>
+  <h2> Record of transactions from <%= @fromD %> to <%= @toD %> </h2>
+<% end %>
+
 <table>
   <tr>
     <th>Date </th>

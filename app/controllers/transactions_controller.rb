@@ -5,11 +5,11 @@ class TransactionsController < ApplicationController
     if params[:fromDate] && params[:toDate]
       startD = params[:fromDate]
       endD = params[:toDate]
-      fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
-      toD = Date.new endD["(1i)"].to_i, endD["(2i)"].to_i, endD["(3i)"].to_i
+      @fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
+      @toD = Date.new endD["(1i)"].to_i, endD["(2i)"].to_i, endD["(3i)"].to_i
 
       #@transactions = @user.transactions.where(:tDate=>10.days.ago...Time.now)
-      @transactions = @user.transactions.where(:tDate=>fromD..toD).order("tDate desc")
+      @transactions = @user.transactions.where(:tDate=>@fromD..@toD).order("tDate desc")
 
       #clear params for use again
       params[:fromDate] = nil
@@ -36,7 +36,7 @@ class TransactionsController < ApplicationController
       account[:balance] += @transaction.get_signed_amount
 
       if account.save
-        redirect_to user_transactions_path(@user)
+        redirect_to user_path(@user)
       else
         render :new, status: :unprocessable_entity
       end
