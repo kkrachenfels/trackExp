@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @transactions = @user.transactions.order("tDate desc")
     #if @user.id != current_user.id
     #  redirect_to '/welcome'
     #end

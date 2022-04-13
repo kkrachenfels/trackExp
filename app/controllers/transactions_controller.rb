@@ -89,11 +89,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def get_record
-  end
-
-  def record
-  end
 
   private
     def get_user

@@ -6,10 +6,11 @@
         <li><%= image_tag "money.jpg", size: "64x64", class: "app_logo" %></li>
         <% if logged_in? %>
           <li><%= link_to "Home", new_user_transaction_path(current_user.id) %></li>
-          <li><%= link_to "Transactions", user_transactions_path(current_user.id) %></li>
+          <li><%= link_to "Transactions", user_path(current_user.id) %></li>
           <li><%= link_to "Accounts", user_accounts_path(current_user.id) %></li>
-          <li><%= link_to "Records", user_path(current_user.id) %></li>
-          <li><%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %></li>
+          <li><%= link_to "Records", user_transactions_path(current_user.id) %></li>
+          <li><p>Hello, <%= current_user.username %>!</p></li>
+          <li><p><%= link_to "Sign out", :controller=> "sessions", :action=> "destroy" %></p></li>
         <% end %>
       </ul>
     </nav>

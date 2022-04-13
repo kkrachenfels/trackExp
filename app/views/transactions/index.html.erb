@@ -1,10 +1,9 @@
-<h1>Hello, User: <%= current_user.username %>!</h1>
-<h2>Transactions</h2>
+<h1>Records</h1>
 
 <%= form_tag(user_transactions_path, method: :get) do %>
   <p> Select Date Range </p>
-  <p><%= date_select(:fromDate, params[:fromDate]) %></p>
-  <p><%= date_select(:toDate, params[:toDate]) %></p>
+  <p><%= date_select(:fromDate, params[:fromDate], :default => Date.today, :end_year => Date.current.year) %></p>
+  <p><%= date_select(:toDate, params[:toDate], :default => Date.today, :end_year => Date.current.year) %></p>
   <%= submit_tag ("Get Record") %>
 <% end %>
 
@@ -26,7 +25,3 @@
     </tr>
   <% end %>
 </table>
-
-<h3>Total Balance Across All Accounts: <%= @user.get_balance %></h3>
-
-<p><%= link_to "Add New Transaction", new_user_transaction_path(@user, @transactions) %></p>
