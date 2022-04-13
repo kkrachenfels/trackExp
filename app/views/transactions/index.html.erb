@@ -1,7 +1,7 @@
 <h1>Records</h1>
 
 <%= form_tag(user_transactions_path, method: :get) do %>
-  <p> Select Date Range </p>
+  <p> Select Date Range [From - To] </p>
   <p><%= date_select(:fromDate, params[:fromDate], :default => Date.today, :end_year => Date.current.year) %></p>
   <p><%= date_select(:toDate, params[:toDate], :default => Date.today, :end_year => Date.current.year) %></p>
   <%= submit_tag ("Get Record") %>
@@ -10,6 +10,12 @@
 <% if @fromD && @toD %>
   <h2> Record of transactions from <%= @fromD %> to <%= @toD %> </h2>
 <% end %>
+
+<div class="recorderror">
+  <% if @recordErr %>
+    <h3> <%= @recordErr %> </h3>
+  <% end %>
+</div>
 
 <table>
   <tr>

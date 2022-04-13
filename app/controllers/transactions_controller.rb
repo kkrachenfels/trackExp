@@ -8,7 +8,11 @@ class TransactionsController < ApplicationController
       @fromD = Date.new startD["(1i)"].to_i, startD["(2i)"].to_i, startD["(3i)"].to_i
       @toD = Date.new endD["(1i)"].to_i, endD["(2i)"].to_i, endD["(3i)"].to_i
 
-      #@transactions = @user.transactions.where(:tDate=>10.days.ago...Time.now)
+      if @fromD > @toD
+        @recordErr = "[Error!] Displaying unfilitered records. The from date should be earlier than the to date."
+        @fromD = nil
+        @toD = nil
+      end
       @transactions = @user.transactions.where(:tDate=>@fromD..@toD).order("tDate desc")
 
       #clear params for use again
@@ -21,6 +25,10 @@ class TransactionsController < ApplicationController
 
   def show
     @transaction = @user.transactions.find(params[:id])
+    @account = nil
+    if params[:account]
+      @account = params[:account]
+    end
   end
 
   def new
@@ -66,7 +74,7 @@ class TransactionsController < ApplicationController
       new_account[:balance] += @transaction.get_signed_amount
 
       if (prev_account.save && new_account.save)
-        redirect_to user_transactions_path(@user)
+        redirect_to user_path(@user)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -83,7 +91,7 @@ class TransactionsController < ApplicationController
 
     if account.save
       @transaction.destroy
-      redirect_to user_transactions_path(@user), status: :see_other
+      redirect_to user_path(@user), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -92,7 +100,8 @@ class TransactionsController < ApplicationController
 
   private
     def get_user
-      @user = User.find(params[:user_id])
+      #@user = User.find(params[:user_id])
+      @user = current_user
     end
 
     def transaction_params

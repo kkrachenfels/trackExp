@@ -19,6 +19,8 @@
 
 <h3>Account Balance: <%= @account.balance %></h3>
 
+<p><%= link_to "Add New Transaction", new_user_transaction_path(@user) %></p>
+
 <p><%= link_to "Edit Account Name", edit_user_account_path(@user, @account) %><br>
 <%= link_to "Delete Account", user_account_path(@user, @account), data: {
                   turbo_method: :delete,
