@@ -54,7 +54,8 @@ group :development, :test do
 
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
+  gem 'factory_bot'
   gem 'capybara'
   gem 'database_cleaner'
 end
