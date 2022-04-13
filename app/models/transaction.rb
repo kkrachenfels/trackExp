@@ -10,7 +10,7 @@ class Transaction < ApplicationRecord
     return tType ? amount : -amount
   end
 
-  validates :name, presence: true, length: { minimum: 2, maximum: 50 }
+  validates :name, presence: true, length: { minimum: 2, maximum: 30 }
   validates :tDate, presence: true
   validates :tType, inclusion: [true, false]
   validates :amount, presence: true
